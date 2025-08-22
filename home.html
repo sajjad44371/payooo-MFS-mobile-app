@@ -3,9 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payooo</title>
+    <title>Payooo</title>  
+
+    <!-- daisyUI cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <!-- tailwind cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css links -->
+    <link rel="stylesheet" href="styles/style.css">
+
 </head>
-<body>
-    <h1>home page</h1>
+<body class="bg-[#f4f5f7] pb-[120px] max-w-xl mx-auto shadow-sm shadow-blue-300">
+    <main class="max-w-lg mx-auto">
+        <!-- nav bar -->
+        <nav class="flex justify-between items-center bg-white px-6 py-2 border-b-1 border-gray-300">
+            <div class="flex justify-between items-center">
+                <div><img src="./assets/Group.png" class="h-[50px]" alt=""></div>
+                <div class="ml-2">
+                    <h3 class="outfit text-lg font-extrabold">$<span id="main-amount">45000</span></h3>
+                    <p class="outfit text-sm text-[#08080880]">Available Balance</p>
+                </div>
+            </div>
+            <div>
+                <button id="btn-logout" class="btn rounded-lg outfit text-sm text-[#08080880] bg-transparent font-normal"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> Log Out</button>
+            </div>
+        </nav>
+
+        <!-- main body  -->
+        <div class="bg-white px-6 py-8">
+            <h2 class="outfit text-2xl font-bold">🔥 Welcome to Payooo!</h2>
+            <p class="outfit text-[#08080880]">Enjoy easy and convenient financial services with us. <br> Cashout charge is low and </p>
+        </div>
+
+        <!-- card section  -->
+        <div class="bg-white grid grid-cols-3 gap-4 pb-6 px-6 border-b-1 border-white rounded-b-xl mb-8">
+            <!-- single item  -->
+            <div class="card bg-white shadow-sm text-center px-3 py-5 border-1 border-gray-300">
+                <img src="./assets/wallet1.png" class="w-[25px] mx-auto" alt="">
+                <h3 class="outfit text-[14px] text-[#08080880]">Add Money</h3>
+            </div>
+
+             <!-- single item  -->
+            <div class="card bg-white shadow-sm text-center px-3 py-5 border-1 border-gray-300">
+                <img src="./assets/send1.png" class="w-[25px] mx-auto" alt="">
+                <h3 class="outfit text-[14px] text-[#08080880]">Cashout</h3>
+            </div>
+
+             <!-- single item  -->
+            <div class="card bg-white shadow-sm text-center px-3 py-5 border-1 border-gray-300">
+                <img src="./assets/money1.png" class="w-[25px] mx-auto" alt="">
+                <h3 class="outfit text-[14px] text-[#08080880]">Transfer Money</h3>
+            </div>
+
+             <!-- single item  -->
+            <div class="card bg-white shadow-sm text-center px-3 py-5 border-1 border-gray-300">
+                <img src="./assets/bonus1.png" class="w-[25px] mx-auto" alt="">
+                <h3 class="outfit text-[14px] text-[#08080880]">Get Bonus</h3>
+            </div>
+
+             <!-- single item  -->
+            <div class="card bg-white shadow-sm text-center px-3 py-5 border-1 border-gray-300">
+                <img src="./assets/purse1.png" class="w-[25px] mx-auto" alt="">
+                <h3 class="outfit text-[14px] text-[#08080880]">Pay Bill</h3>
+            </div>
+
+             <!-- single item  -->
+            <div class="card bg-white shadow-sm text-center px-3 py-5 border-1 border-gray-300">
+                <img src="./assets/transaction1.png" class="w-[25px] mx-auto" alt="">
+                <h3 class="outfit text-[14px] text-[#08080880]">Transactions</h3>
+            </div>
+        </div>
+
+        <!-- form-section  -->
+        <div class="form-section px-6">
+            <h3 class="outfit text-lg font-semibold">Add Money</h3>
+            <!-- input field  -->
+            <form class="bg-[#ffffff] p-8 rounded-3xl mt-4">
+                <div class="mb-4">
+                    <label for="" class="outfit font-medium text-[#08080880]">Select A Bank</label>
+                    <select class="select block rounded-3xl border-none mt-3 bg-[#F4F5F7] outfit font-light outline-0 w-full focus:outline-none" id="add-bank">
+                        <option disabled selected class="outfit font-light">Select bank</option>
+                        <option class="outfit">Jamuna Bank</option>
+                        <option class="outfit">Dhaka Bank</option>
+                        <option class="outfit">Sonali Bank</option>
+                        <option class="outfit">Exim Bank</option>
+                        <option class="outfit">Mercantile Bank</option>
+                        <option class="outfit">Jonota Bank</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="" class="outfit font-medium text-[#08080880]">Bank Account Number</label>
+                    <input type="text" placeholder="Enter 11 digit account number" class="input block rounded-3xl border-none mt-3 bg-[#F4F5F7] outfit font-light w-full focus:outline-none" name="" id="add-acc">
+                </div>
+                <div class="mb-4">
+                    <label for="" class="outfit font-medium text-[#08080880]">Amount to Add</label>
+                    <input type="text" placeholder="Add Amount to withdraw" class="input block rounded-3xl border-none mt-3 bg-[#F4F5F7] outfit font-light w-full focus:outline-none" name="" id="add-amount">
+                </div>
+                <div class="mb-4">
+                    <label for="" class="outfit font-medium text-[#08080880]">Pin Number</label>
+                    <input type="password" placeholder="Enter 4 digit pin number" class="input block rounded-3xl border-none mt-3 bg-[#F4F5F7] outfit font-light w-full focus:outline-none" name="" id="add-pin">
+                </div>
+                <div>
+                    <button id="btn-add" class="btn w-full rounded-3xl bg-[#0874F2] outfit text-lg font-semibold text-white">Add Money</button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+    <!-- js link -->
+    <script src="./js/home.js"></script>
 </body>
 </html>
