@@ -4,6 +4,7 @@ document.getElementById("btn-logout").addEventListener("click", function () {
 });
 
 const validPin = 1234;
+const transactionsData = [];
 
 // add
 const add = document.getElementById("add");
@@ -15,7 +16,6 @@ add.addEventListener("click", function () {
 
     const allCard = document.querySelectorAll(".card");
     for (const card of allCard) {
-      console.log(card);
       card.classList.remove(
         "bg-[#0874f20d]",
         "border-[#0874F2]",
@@ -71,6 +71,12 @@ add.addEventListener("click", function () {
     document.getElementById("add-acc").value = "";
     document.getElementById("add-amount").value = "";
     document.getElementById("add-pin").value = "";
+
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleTimeString,
+    };
+    transactionsData.push(data);
   });
 });
 
@@ -84,7 +90,6 @@ cashOut.addEventListener("click", function () {
 
     const allCard = document.querySelectorAll(".card");
     for (const card of allCard) {
-      console.log(card);
       card.classList.remove(
         "bg-[#0874f20d]",
         "border-[#0874F2]",
@@ -135,6 +140,12 @@ cashOut.addEventListener("click", function () {
     document.getElementById("cashout-agent").value = "";
     document.getElementById("withdraw-amount").value = "";
     document.getElementById("withdraw-pin").value = "";
+
+    const data = {
+      name: "Cash Out",
+      date: new Date().toLocaleTimeString,
+    };
+    transactionsData.push(data);
   });
 });
 
@@ -148,7 +159,6 @@ transfer.addEventListener("click", function () {
 
     const allCard = document.querySelectorAll(".card");
     for (const card of allCard) {
-      console.log(card);
       card.classList.remove(
         "bg-[#0874f20d]",
         "border-[#0874F2]",
@@ -199,6 +209,12 @@ transfer.addEventListener("click", function () {
     document.getElementById("transfer-acc").value = "";
     document.getElementById("transfer-amount").value = "";
     document.getElementById("transfer-pin").value = "";
+
+    const data = {
+      name: "Transfer Money",
+      date: new Date().toLocaleTimeString,
+    };
+    transactionsData.push(data);
   });
 });
 
@@ -212,7 +228,6 @@ getBonus.addEventListener("click", function () {
 
     const allCard = document.querySelectorAll(".card");
     for (const card of allCard) {
-      console.log(card);
       card.classList.remove(
         "bg-[#0874f20d]",
         "border-[#0874F2]",
@@ -248,6 +263,12 @@ getBonus.addEventListener("click", function () {
     }
 
     document.getElementById("coupon-num").value = "";
+
+    const data = {
+      name: "Get Bonus",
+      date: new Date().toLocaleTimeString,
+    };
+    transactionsData.push(data);
   });
 });
 
@@ -261,7 +282,6 @@ payBill.addEventListener("click", function () {
 
     const allCard = document.querySelectorAll(".card");
     for (const card of allCard) {
-      console.log(card);
       card.classList.remove(
         "bg-[#0874f20d]",
         "border-[#0874F2]",
@@ -314,5 +334,64 @@ payBill.addEventListener("click", function () {
     document.getElementById("biller-acc").value = "";
     document.getElementById("pay-amount").value = "";
     document.getElementById("pay-pin").value = "";
+
+    const data = {
+      name: "Pay Bill",
+      date: new Date().toLocaleTimeString(),
+    };
+    transactionsData.push(data);
   });
+});
+
+// pay transactions
+const transactions = document.getElementById("transactions");
+transactions.addEventListener("click", function () {
+  const allFormSection = document.querySelectorAll(".form-section");
+  for (const el of allFormSection) {
+    el.style.display = "none";
+    document.getElementById("transactions-sec").style.display = "block";
+
+    const allCard = document.querySelectorAll(".card");
+    for (const card of allCard) {
+      card.classList.remove(
+        "bg-[#0874f20d]",
+        "border-[#0874F2]",
+        "text-[#0874F2]"
+      );
+      card.classList.add("bg-white", "border-gray-300");
+    }
+    document
+      .getElementById("transactions")
+      .classList.remove("bg-white", "border-gray-300");
+    document
+      .getElementById("transactions")
+      .classList.add("bg-[#0874f20d]", "border-[#0874F2]", "text-[#0874F2]");
+  }
+
+  const transactionsContainer = document.getElementById(
+    "transaction-container"
+  );
+  transactionsContainer.innerText = "";
+  for (const data of transactionsData) {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <div
+            class="flex justify-between items-center px-4 py-3 rounded-xl bg-white border-1 border-gray-200 mb-3"
+          >
+            <div class="flex justify-between items-center">
+              <div class="mr-2 p-3 bg-[#0808080d] rounded-full">
+                <img src="./assets/wallet1.png" alt="" />
+              </div>
+              <div>
+                <h3 class="text-[#080808b3] font-semibold">${data.name}</h3>
+                <p class="text-[12px] text-[#080808b3]">${data.date}</p>
+              </div>
+            </div>
+            <div>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+    `;
+    transactionsContainer.appendChild(div);
+  }
 });
