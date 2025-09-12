@@ -53,8 +53,8 @@ add.addEventListener("click", function () {
     } else if (accountNumber.length < 11) {
       alert("Please enter valid account number.");
       return;
-    } else if (isNaN(addAmount)) {
-      alert("Please enter amount.");
+    } else if (isNaN(addAmount) || addAmount <= 0) {
+      alert("Please enter valid amount.");
       return;
     } else if (addPinNumber !== validPin) {
       alert("Please enter correct pin number.");
@@ -74,7 +74,7 @@ add.addEventListener("click", function () {
 
     const data = {
       name: "Add Money",
-      date: new Date().toLocaleTimeString,
+      date: new Date().toLocaleTimeString(),
     };
     transactionsData.push(data);
   });
@@ -122,8 +122,8 @@ cashOut.addEventListener("click", function () {
     if (agentNumber.length < 11) {
       alert("Please enter valid agent account.");
       return;
-    } else if (isNaN(withdrawAmount)) {
-      alert("Please enter your amount.");
+    } else if (isNaN(withdrawAmount) || withdrawAmount <= 0) {
+      alert("Please enter valid amount.");
       return;
     } else if (withdrawPin !== validPin) {
       alert("Please enter correct pin number.");
@@ -143,7 +143,7 @@ cashOut.addEventListener("click", function () {
 
     const data = {
       name: "Cash Out",
-      date: new Date().toLocaleTimeString,
+      date: new Date().toLocaleTimeString(),
     };
     transactionsData.push(data);
   });
@@ -191,8 +191,8 @@ transfer.addEventListener("click", function () {
     if (transferAcc.length < 11) {
       alert("Please enter valid user account.");
       return;
-    } else if (isNaN(transferAmount)) {
-      alert("Please enter your amount.");
+    } else if (isNaN(transferAmount) || transferAmount <= 0) {
+      alert("Please enter valid amount.");
       return;
     } else if (transferPin !== validPin) {
       alert("Please enter correct pin number.");
@@ -212,7 +212,7 @@ transfer.addEventListener("click", function () {
 
     const data = {
       name: "Transfer Money",
-      date: new Date().toLocaleTimeString,
+      date: new Date().toLocaleTimeString(),
     };
     transactionsData.push(data);
   });
@@ -266,7 +266,7 @@ getBonus.addEventListener("click", function () {
 
     const data = {
       name: "Get Bonus",
-      date: new Date().toLocaleTimeString,
+      date: new Date().toLocaleTimeString(),
     };
     transactionsData.push(data);
   });
@@ -316,7 +316,7 @@ payBill.addEventListener("click", function () {
     } else if (billerAccNum.length < 11) {
       alert("Please enter valid biller account.");
       return;
-    } else if (isNaN(payAmount)) {
+    } else if (isNaN(payAmount) || payAmount <= 0) {
       alert("Please enter your amount.");
       return;
     } else if (payPin !== validPin) {
